@@ -5,6 +5,7 @@ A hybrid filesystem extension for Hetzner Storage Boxes that combines the best f
 ## Status
 
 **Functional** - This extension provides a hybrid filesystem implementation that uses:
+
 - SSH for directory operations (more efficient than WebDAV's recursive MKCOL)
 - WebDAV for file operations (efficient HTTP range requests for Parquet files)
 
@@ -13,6 +14,7 @@ A hybrid filesystem extension for Hetzner Storage Boxes that combines the best f
 The extension provides a `storagebox://` protocol handler with:
 
 ### Hybrid Protocol Selection
+
 - **Directory Creation**: Uses SSH `mkdir -p` for efficient recursive directory creation
 - **Directory Listing**: Uses SSH `tree -J` command for fast recursive file listing
 - **File Move/Rename**: Uses SFTP native rename operation for atomic server-side moves
@@ -21,6 +23,7 @@ The extension provides a `storagebox://` protocol handler with:
 - **Connection Pooling**: Maintains persistent SSH connections to avoid handshake overhead
 
 ### Key Features
+
 - Multi-part streaming uploads (10MB chunks) to minimize memory usage
 - Automatic chunk combining via SSH `dd` command on file close
 - Efficient HTTP range requests for reading Parquet files
@@ -93,8 +96,9 @@ SELECT * FROM 'storagebox://u508112/remote/file.parquet' LIMIT 10;
 ## Development
 
 This extension is based on:
-- [duckdb-webdav](../duckdb-webdav) - WebDAV filesystem support
-- [duckdb-sshfs](../duckdb-sshfs) - SSH/SFTP filesystem support
+
+- [duckdb-webdav](https://github.com/midwork-finds-jobs/duckdb-webdav) - WebDAV filesystem support
+- [duckdb-sshfs](https://github.com/midwork-finds-jobs/duckdb-sshfs) - SSH/SFTP filesystem support
 
 See SPEC.md for the full specification.
 
