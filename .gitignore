@@ -1,0 +1,17 @@
+# devenv
+.devenv/
+.devenv.flake.nix
+.direnv/
+devenv.lock
+.pre-commit-config.yaml
+
+# Build directories
+build/
+.vscode/
+
+# DuckDB files
+*.duckdb
+*.duckdb.wal
+
+# Test files
+*.sql

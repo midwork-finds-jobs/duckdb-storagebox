@@ -1,0 +1,9 @@
+{
+  "name": "storagebox",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "openssl",
+    "curl",
+    "libssh2"
+  ]
+}
